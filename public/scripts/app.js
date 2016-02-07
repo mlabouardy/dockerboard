@@ -1,8 +1,9 @@
-angular.module('dockerboard',['ngRoute'])
+angular.module('dockerboard',['ngRoute','ui.bootstrap'])
   .config(function($routeProvider){
       $routeProvider
         .when('/',{
           templateUrl:'views/main.html',
+          controller:'DashboardCtrl',
           title:'Dashboard'
         })
         .when('/containers',{
