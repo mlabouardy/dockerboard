@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>List of images</h5>
+      </div>
+      <div class="ibox-content">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Tag</th>
+              <th>Created</th>
+              <th>Size</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="image in images">
+              <td>{{image.Name}}</td>
+              <td>{{image.Tag}}</td>
+              <td>{{image.Created}}</td>
+              <td>{{image.VirtualSize | number:1}} Mb</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

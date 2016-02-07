@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>List of containers</h5>
+      </div>
+      <div class="ibox-content">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Names</th>
+              <th>Image</th>
+              <th>Created at</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="container in containers">
+              <td>{{container.Names}}</td>
+              <td>{{container.Image}}</td>
+              <td>{{container.Created}}</td>
+              <td>{{container.Status}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
