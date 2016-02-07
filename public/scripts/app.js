@@ -18,6 +18,7 @@ angular.module('dockerboard',['ngRoute','ui.bootstrap'])
         })
         .when('/container/:id',{
           templateUrl:'views/container.html',
+          controller:'ContainerCtrl',
           title:'Container details'
         })
         .otherwise({redirectTo:'/'});

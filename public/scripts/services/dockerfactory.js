@@ -8,6 +8,9 @@ angular.module('dockerboard')
       images:function(){
         return $http.get('images.json');
       },
+      container:function(){
+        return $http.get('container.json');
+      },
       infos:function(){
         return $http.get('info.json');
       }
