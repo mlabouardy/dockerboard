@@ -16,6 +16,10 @@ angular.module('dockerboard',['ngRoute','ui.bootstrap'])
           controller:'ImagesCtrl',
           title:'Images'
         })
+        .when('/container/:id',{
+          templateUrl:'views/container.html',
+          title:'Container details'
+        })
         .otherwise({redirectTo:'/'});
   })
   .run(function($rootScope){

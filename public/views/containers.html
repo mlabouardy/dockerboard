@@ -8,6 +8,7 @@
         <table class="table table-sm">
           <thead>
             <tr>
+              <th></th>
               <th>Name</th>
               <th>Image</th>
               <th>Created at</th>
@@ -16,6 +17,7 @@
           </thead>
           <tbody>
             <tr ng-repeat="container in containers">
+              <td><a class="btn btn-info btn-xs" href="#/container/{{container.Id}}"><i class="fa fa-info-circle"></i> View</a></td>
               <td>{{container.Name}}</td>
               <td>{{container.Image}}</td>
               <td>{{container.Created}}</td>
