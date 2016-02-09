@@ -1,0 +1,162 @@
+{
+  "Id": "1205fdf011bf0328a3ed5d4570899e7552cfb82a17da1462776f62144da8453e",
+  "Created": "2016-02-05T23:28:27.439747433Z",
+  "Path": "/bin/tini",
+  "Args": [
+    "--",
+    "/usr/local/bin/jenkins.sh"
+  ],
+  "State": {
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 1594,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2016-02-05T23:28:27.833823592Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "Image": "a5fd6db47f68ccd0b6de8806380480fc3930a7a098c50fefa9eecacf96f99527",
+  "NetworkSettings": {
+    "Bridge": "",
+    "EndpointID": "f2285d46792cd629e0531bad2cb3134c2ff328148f55f857ca63414c02c5d7e3",
+    "Gateway": "172.17.42.1",
+    "GlobalIPv6Address": "",
+    "GlobalIPv6PrefixLen": 0,
+    "HairpinMode": false,
+    "IPAddress": "172.17.0.2",
+    "IPPrefixLen": 16,
+    "IPv6Gateway": "",
+    "LinkLocalIPv6Address": "",
+    "LinkLocalIPv6PrefixLen": 0,
+    "MacAddress": "02:42:ac:11:00:02",
+    "NetworkID": "94dabe9a001157917365829971aaf0e6963a8523a16e156a545f904f2e877299",
+    "PortMapping": null,
+    "Ports": {
+      "50000/tcp": null,
+      "8080/tcp": [
+        {
+          "HostIp": "0.0.0.0",
+          "HostPort": "8082"
+        }
+      ]
+    },
+    "SandboxKey": "/var/run/docker/netns/1205fdf011bf",
+    "SecondaryIPAddresses": null,
+    "SecondaryIPv6Addresses": null
+  },
+  "ResolvConfPath": "/var/lib/docker/containers/1205fdf011bf0328a3ed5d4570899e7552cfb82a17da1462776f62144da8453e/resolv.conf",
+  "HostnamePath": "/var/lib/docker/containers/1205fdf011bf0328a3ed5d4570899e7552cfb82a17da1462776f62144da8453e/hostname",
+  "HostsPath": "/var/lib/docker/containers/1205fdf011bf0328a3ed5d4570899e7552cfb82a17da1462776f62144da8453e/hosts",
+  "LogPath": "/var/lib/docker/containers/1205fdf011bf0328a3ed5d4570899e7552cfb82a17da1462776f62144da8453e/1205fdf011bf0328a3ed5d4570899e7552cfb82a17da1462776f62144da8453e-json.log",
+  "Name": "/stupefied_fermat",
+  "RestartCount": 0,
+  "Driver": "devicemapper",
+  "ExecDriver": "native-0.2",
+  "MountLabel": "",
+  "ProcessLabel": "",
+  "Volumes": {
+    "/var/jenkins_home": "/var/lib/docker/volumes/498d0fb084005933b7958dd261a3712189177e7db57b573f5259c7ba473cfe38/_data"
+  },
+  "VolumesRW": {
+    "/var/jenkins_home": true
+  },
+  "AppArmorProfile": "",
+  "ExecIDs": null,
+  "HostConfig": {
+    "Binds": null,
+    "ContainerIDFile": "",
+    "LxcConf": [],
+    "Memory": 0,
+    "MemorySwap": 0,
+    "CpuShares": 0,
+    "CpuPeriod": 0,
+    "CpusetCpus": "",
+    "CpusetMems": "",
+    "CpuQuota": 0,
+    "BlkioWeight": 0,
+    "OomKillDisable": false,
+    "Privileged": false,
+    "PortBindings": {
+      "8080/tcp": [
+        {
+          "HostIp": "",
+          "HostPort": "8082"
+        }
+      ]
+    },
+    "Links": null,
+    "PublishAllPorts": false,
+    "Dns": null,
+    "DnsSearch": null,
+    "ExtraHosts": null,
+    "VolumesFrom": null,
+    "Devices": [],
+    "NetworkMode": "bridge",
+    "IpcMode": "",
+    "PidMode": "",
+    "UTSMode": "",
+    "CapAdd": null,
+    "CapDrop": null,
+    "RestartPolicy": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "SecurityOpt": null,
+    "ReadonlyRootfs": false,
+    "Ulimits": null,
+    "LogConfig": {
+      "Type": "json-file",
+      "Config": {}
+    },
+    "CgroupParent": ""
+  },
+  "Config": {
+    "Hostname": "1205fdf011bf",
+    "Domainname": "",
+    "User": "root",
+    "AttachStdin": false,
+    "AttachStdout": false,
+    "AttachStderr": false,
+    "PortSpecs": null,
+    "ExposedPorts": {
+      "50000/tcp": {},
+      "8080/tcp": {}
+    },
+    "Tty": false,
+    "OpenStdin": false,
+    "StdinOnce": false,
+    "Env": [
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "LANG=C.UTF-8",
+      "JAVA_VERSION=8u66",
+      "JAVA_DEBIAN_VERSION=8u66-b01-1~bpo8+1",
+      "CA_CERTIFICATES_JAVA_VERSION=20140324",
+      "JENKINS_HOME=/var/jenkins_home",
+      "JENKINS_SLAVE_AGENT_PORT=50000",
+      "TINI_SHA=066ad710107dc7ee05d3aa6e4974f01dc98f3888",
+      "JENKINS_VERSION=1.609.3",
+      "JENKINS_SHA=f5ad5f749c759da7e1a18b96be5db974f126b71e",
+      "JENKINS_UC=https://updates.jenkins-ci.org",
+      "COPY_REFERENCE_FILE_LOG=/var/jenkins_home/copy_reference_file.log"
+    ],
+    "Cmd": null,
+    "Image": "mlabouardy/jenkins",
+    "Volumes": {
+      "/var/jenkins_home": {}
+    },
+    "VolumeDriver": "",
+    "WorkingDir": "",
+    "Entrypoint": [
+      "/bin/tini",
+      "--",
+      "/usr/local/bin/jenkins.sh"
+    ],
+    "NetworkDisabled": false,
+    "MacAddress": "",
+    "OnBuild": null,
+    "Labels": {}
+  }
+}

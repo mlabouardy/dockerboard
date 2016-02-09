@@ -9,10 +9,13 @@ angular.module('dockerboard')
         return $http.get('images.json');
       },
       container:function(){
-        return $http.get('container.json');
+        return $http.get('containers2.json');
       },
       infos:function(){
         return $http.get('info.json');
+      },
+      logs:function(){
+        return $http.get('logs.json');
       }
     }
   });

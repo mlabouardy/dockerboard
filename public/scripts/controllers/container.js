@@ -47,15 +47,35 @@ angular.module('dockerboard')
       for(port in ports){
         var data=ports[port];
         var hostPorts=[];
-        for(var i=0;i<data.length;i++){
-          hostPorts.push(data[i].HostPort);
+        if(data!=null){
+          for(var i=0;i<data.length;i++){
+            hostPorts.push(data[i].HostPort);
+          }
+          $scope.ports.push({
+            homePort:port,
+            hostPorts:hostPorts
+          });
         }
-        $scope.ports.push({
-          homePort:port,
-          hostPorts:hostPorts
-        });
+
       }
 
       $scope.name=details.Name.slice(1);
+
+      var envs=details.Config.Env;
+      $scope.envs=[];
+  	 	for(var i=0;i<envs.length;i++){
+  	 		var env=envs[i]
+
+  	 		var variableValue = env.substr(env.indexOf("=") + 1);
+  	 		var variableName= env.substr(0, env.indexOf('='));
+
+  	 		$scope.envs.push({
+  	 			name:variableName,
+  	 			value:variableValue
+  	 		});
+  	 	}
+      $scope.volumes=details.Config.Volumes;
+      $scope.image=details.Config.Image;
+      $scope.exposedPorts=details.Config.ExposedPorts;
     });
   });
