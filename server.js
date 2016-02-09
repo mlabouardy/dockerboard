@@ -1,7 +1,7 @@
 var express=require('express'),
     path=require('path'),
     logger=require('morgan'),
-    docker=require('./docker'),
+    docker=require('./lib/docker'),
     app=express();
 
 app.use(logger('dev'));

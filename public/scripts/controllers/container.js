@@ -42,6 +42,20 @@ angular.module('dockerboard')
       if(details.State.Dead)
         $scope.state=stats[4];
 
+      var ports=details.NetworkSettings.Ports;
+      $scope.ports=[];
+      for(port in ports){
+        var data=ports[port];
+        var hostPorts=[];
+        for(var i=0;i<data.length;i++){
+          hostPorts.push(data[i].HostPort);
+        }
+        $scope.ports.push({
+          homePort:port,
+          hostPorts:hostPorts
+        });
+      }
 
+      $scope.name=details.Name.slice(1);
     });
   });

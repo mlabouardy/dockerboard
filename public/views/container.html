@@ -1,18 +1,18 @@
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
-        <h2>Container Infos</h2>
-        <ol class="breadcrumb">
-            <li>
-                <a href="#/containers">Containers</a>
-            </li>
-            <li class="active">
-                <strong>Details</strong>
-            </li>
-        </ol>
-    </div>
-    <div class="col-lg-2">
+  <div class="col-lg-10">
+    <h2>Container Infos</h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="#/containers">Containers</a>
+      </li>
+      <li class="active">
+        <strong>{{name}}</strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
 
-    </div>
+  </div>
 </div>
 <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
@@ -28,6 +28,25 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="ibox">
+        <div class="ibox-title">
+          Active ports
+        </div>
+        <div class="ibox-content">
+          <ul class="list-unstyled file-list">
+            <div ng-repeat="port in ports">
+              <li ng-repeat="host in port.hostPorts">
+                <a href=":{{host}}" target="_blank"><i class="fa fa-link"></i> {{port.homePort}}: {{host}}</a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
