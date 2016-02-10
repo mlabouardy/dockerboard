@@ -40,5 +40,51 @@
         </div>
       </div>
     </div>
+
+    <div class="col-lg-3">
+      <div class="widget style1 yellow-bg">
+        <div class="row">
+          <div class="col-xs-4">
+            <i class="fa fa-linux fa-5x"></i>
+          </div>
+          <div class="col-xs-8 text-right">
+            <span> OS </span>
+            <h2 class="font-bold" style="font-size:12px">{{info.OperatingSystem}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="widget lazur-bg p-xl">
+
+        <h2>
+          Docker {{version.Version}}
+        </h2>
+        <ul class="list-unstyled m-t-md">
+          <li>
+            <span class="fa fa-connectdevelop m-r-xs"></span>
+            <label>API:</label>
+            {{version.ApiVersion}}
+          </li>
+          <li>
+            <span class="fa fa-linux m-r-xs"></span>
+            <label>OS:</label>
+            {{version.Os}}
+          </li>
+          <li>
+            <span class="fa fa-home m-r-xs"></span>
+            <label>Arch:</label>
+            {{version.Arch}}
+          </li>
+          <li>
+            <span class="fa fa-cog m-r-xs"></span>
+            <label>Kernel:</label>
+            {{version.KernelVersion}}
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>

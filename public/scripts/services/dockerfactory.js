@@ -16,6 +16,9 @@ angular.module('dockerboard')
       },
       logs:function(id){
         return $http.get(SERVER+'/logs/'+id);
+      },
+      version:function(){
+        return $http.get(SERVER+'/version');
       }
     }
   });
