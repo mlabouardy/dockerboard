@@ -43,9 +43,25 @@
         </div>
       </div>
     </div>
+
+    <div class="col-lg-3">
+      <div class="widget lazur-bg">
+        <div class="row">
+          <div class="col-xs-4 text-center">
+            <i class="fa fa-file-text fa-5x"></i>
+          </div>
+          <div class="col-xs-8 text-right">
+            <span> Logs </span>
+            <a href="#/logfile/1" style="color:#FFF"><h2 class="font-bold">View</h2></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
   <div class="row">
     <div class="col-lg-9">
+      <div class="col-lg-12">
       <div class="ibox">
         <div class="ibox-title">
           Environnement variables
@@ -69,7 +85,9 @@
       </div>
 
     </div>
+    </div>
     <div class="col-lg-3">
+      <div class="col-lg-12">
       <div class="ibox">
         <div class="ibox-title">
           Active ports
@@ -86,26 +104,7 @@
       </div>
 
     </div>
-
-  </div>
-
-  <div class="row">
-    <div class="col-lg-3">
-      <div class="ibox">
-        <div class="ibox-title">
-          Volumes
-        </div>
-        <div class="ibox-content">
-          <ul class="list-unstyled file-list">
-            <li ng-repeat="(volume,data) in volumes">
-              <i class="fa fa-hdd-o"></i> {{volume}}
-            </li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-lg-3">
+    <div class="col-lg-12">
       <div class="ibox">
         <div class="ibox-title">
           Exposed ports
@@ -120,5 +119,20 @@
       </div>
 
     </div>
-  </div>
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          Volumes
+        </div>
+        <div class="ibox-content">
+          <ul class="list-unstyled file-list">
+            <li ng-repeat="(volume,data) in volumes">
+              <i class="fa fa-hdd-o"></i> {{volume}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    </div>
 </div>

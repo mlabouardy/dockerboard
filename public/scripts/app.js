@@ -21,6 +21,11 @@ angular.module('dockerboard',['ngRoute','ui.bootstrap'])
           controller:'ContainerCtrl',
           title:'Container details'
         })
+        .when('/logfile/:id',{
+          templateUrl:'views/logfile.html',
+          controller:'LogsCtrl',
+          title:'Logs'
+        })
         .otherwise({redirectTo:'/'});
   })
   .run(function($rootScope){

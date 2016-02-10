@@ -25,6 +25,13 @@ app.get('/api/v1/containers/:id',function(req,res){
   });
 });
 
+app.get('/api/v1/logs/:id',function(req,res){
+  var container = docker.getContainer(req.params.id);
+  docker.containerLogs(container,function(logs){
+    res.send(logs);
+  });
+});
+
 app.listen(3000,function(){
   console.log('Server listening ..');
 })
