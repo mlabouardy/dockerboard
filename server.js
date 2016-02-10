@@ -26,9 +26,15 @@ app.get('/api/v1/containers/:id',function(req,res){
 });
 
 app.get('/api/v1/logs/:id',function(req,res){
-  var container = docker.getContainer(req.params.id);
+  var container = docker.getID(req.params.id);
   docker.containerLogs(container,function(logs){
     res.send(logs);
+  });
+});
+
+app.get('/api/v1/info',function(req,res){
+  docker.dockerInfo(function(err,data){
+    res.send(data);
   });
 });
 

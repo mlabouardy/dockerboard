@@ -12,7 +12,7 @@ angular.module('dockerboard')
         return $http.get(SERVER+'/containers/'+id);
       },
       infos:function(){
-        return $http.get('info.json');
+        return $http.get(SERVER+'/info');
       },
       logs:function(id){
         return $http.get(SERVER+'/logs/'+id);
