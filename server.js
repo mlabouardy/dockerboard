@@ -38,6 +38,24 @@ app.get('/api/v1/info',function(req,res){
   });
 });
 
+
+app.get('/api/v1/usage/:id',function(req,res){
+  res.header('Content-Type', 'text/event-stream');
+  docker.usage(req.params.id,function(err,data){
+  	var usage=[];
+  	data.on('data', function(u){
+  		usage.push(u);
+    });
+  	var interval_id = setInterval(function() {res.write(""+usage);}, 50);
+  });
+});
+
+app.get('/api/v1/version',function(req,res){
+ 	docker.version(function(err,data){
+		res.send(data);
+	});
+});
+
 app.listen(3000,function(){
   console.log('Server listening ..');
 })
