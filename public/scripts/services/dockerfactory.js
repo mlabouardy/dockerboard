@@ -1,21 +1,21 @@
 angular.module('dockerboard')
   .factory('DockerFactory',function($http){
-    var SERVER='/api/v1';
+    var SERVER='http://51.254.132.239:3000/api/v1';
     return{
       containers:function(){
-        return $http.get('containers.json');
+        return $http.get(SERVER+'/containers');
       },
       images:function(){
-        return $http.get('images.json');
+        return $http.get(SERVER+'/images');
       },
-      container:function(){
-        return $http.get('containers2.json');
+      container:function(id){
+        return $http.get(SERVER+'/containers/'+id);
       },
       infos:function(){
         return $http.get('info.json');
       },
-      logs:function(){
-        return $http.get('logs.json');
+      logs:function(id){
+        return $http.get(SERVER+'/logs/'+id);
       }
     }
   });

@@ -1,6 +1,6 @@
 angular.module('dockerboard')
-  .controller('ContainerCtrl',function($scope, DockerFactory){
-    DockerFactory.container().then(function(details){
+  .controller('ContainerCtrl',function($scope, DockerFactory, $routeParams){
+    DockerFactory.container($routeParams.id).then(function(details){
       details=details.data;
       var stats=[
         {
@@ -77,5 +77,6 @@ angular.module('dockerboard')
       $scope.volumes=details.Config.Volumes;
       $scope.image=details.Config.Image;
       $scope.exposedPorts=details.Config.ExposedPorts;
+      $scope.Id=details.Id;
     });
   });
