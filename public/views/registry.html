@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Registries</h5>
+        <a ng-click="newRegistry()" class="label label-warning-light pull-right"><i class="fa fa-plus-circle"></i> New registry</a>
+      </div>
+      <div class="ibox-content">
+        <div ng-show="registries.length">
+          <table class="table table-sm" style="font-size:12px">
+            <thead>
+              <tr>
+                <th>Hostname</th>
+                <th>Port</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>API</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="registry in registries">
+                <td>{{registry.hostname}}</td>
+                <td>{{registry.port}}</td>
+                <td>{{registry.username}}</td>
+                <td>{{registry.password}}</td>
+                <td>{{registry.api}}</td>
+                <td><span class="btn btn-primary btn-xs">Online</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div ng-hide="registries.length">
+          <div class="alert alert-info">No registry created yet</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

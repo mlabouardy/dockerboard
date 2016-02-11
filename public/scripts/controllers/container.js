@@ -1,7 +1,7 @@
 angular.module('dockerboard')
   .controller('ContainerCtrl',function($scope, DockerFactory, $routeParams){
     $scope.volumes=[];
-    DockerFactory.usage().then(function(data){
+    DockerFactory.resource($routeParams.id).then(function(data){
       var usage=data.data;
       $scope.memory=usage.memory_stats.usage/1000000;
       $scope.memory_limit=usage.memory_stats.limit/1000000;

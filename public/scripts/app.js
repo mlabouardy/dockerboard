@@ -26,6 +26,11 @@ angular.module('dockerboard',['ngRoute','ui.bootstrap'])
           controller:'LogsCtrl',
           title:'Logs'
         })
+        .when('/registry',{
+          templateUrl:'views/registry.html',
+          controller:'RegistryCtrl',
+          title:'Private Registry'
+        })
         .otherwise({redirectTo:'/'});
   })
   .run(function($rootScope){
