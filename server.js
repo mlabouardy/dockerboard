@@ -20,14 +20,13 @@ app.get('/api/v1/images',function(req,res){
 });
 
 app.get('/api/v1/containers/:id',function(req,res){
-  docker.details(req.params.id,function(err,data){
+  docker.getContainer(req.params.id,function(err,data){
       res.send(data);
   });
 });
 
 app.get('/api/v1/logs/:id',function(req,res){
-  var container = docker.getID(req.params.id);
-  docker.containerLogs(container,function(logs){
+  docker.containerLogs(req.params.id,function(logs){
     res.send(logs);
   });
 });
@@ -38,20 +37,14 @@ app.get('/api/v1/info',function(req,res){
   });
 });
 
-
 app.get('/api/v1/usage/:id',function(req,res){
-  res.header('Content-Type', 'text/event-stream');
-  docker.usage(req.params.id,function(err,data){
-  	var usage=[];
-  	data.on('data', function(u){
-  		usage.push(u);
-    });
-  	var interval_id = setInterval(function() {res.write(""+usage);}, 50);
-  });
+  docker.resourceUsage(req.params.id,function(err,data){
+		res.send(data);
+	});
 });
 
 app.get('/api/v1/version',function(req,res){
- 	docker.version(function(err,data){
+ 	docker.dockerVersion(function(err,data){
 		res.send(data);
 	});
 });

@@ -19,6 +19,9 @@ angular.module('dockerboard')
       },
       version:function(){
         return $http.get(SERVER+'/version');
+      },
+      usage:function(){
+        return $http.get('http://51.254.132.239:3000/test');
       }
     }
   });

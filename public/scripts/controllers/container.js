@@ -1,5 +1,22 @@
 angular.module('dockerboard')
   .controller('ContainerCtrl',function($scope, DockerFactory, $routeParams){
+    $scope.volumes=[];
+    DockerFactory.usage().then(function(data){
+      var usage=data.data;
+      $scope.memory=usage.memory_stats.usage/1000000;
+      $scope.memory_limit=usage.memory_stats.limit/1000000;
+      $scope.memory_percentage=($scope.memory/$scope.memory_limit)*100;
+
+      $scope.cpu=usage.cpu_stats.cpu_usage.total_usage/1000000;
+      $scope.cpu_system=usage.cpu_stats.system_cpu_usage/1000000;
+      $scope.networkIn=usage.network.rx_bytes/1000;
+      $scope.networkOut=usage.network.tx_bytes/1000;
+      $scope.cpu_percentage=($scope.cpu/$scope.cpu_system)*100;
+
+      $scope.now=moment(new Date()).fromNow();
+    });
+
+
     DockerFactory.container($routeParams.id).then(function(details){
       details=details.data;
       var stats=[

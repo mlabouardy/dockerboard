@@ -1,10 +1,25 @@
 angular.module('dockerboard')
-  .controller('DashboardCtrl',function($scope, DockerFactory){
-    DockerFactory.infos().then(function(info){
-      $scope.info=info.data;
-    });
+.controller('DashboardCtrl',function($scope, DockerFactory){
 
-    DockerFactory.version().then(function(version){
-      $scope.version=version.data;
-    });
+  setTimeout(function() {
+    toastr.options = {
+      closeButton: true,
+      progressBar: true,
+      showMethod: 'slideDown',
+      timeOut: 4000
+    };
+    toastr.success('Manage your docker containers', 'Welcome to Dockerboard');
+
+  }, 1300);
+
+
+  DockerFactory.infos().then(function(info){
+    $scope.info=info.data;
   });
+
+  DockerFactory.version().then(function(version){
+    $scope.version=version.data;
+  });
+
+
+});
