@@ -31,6 +31,11 @@ angular.module('dockerboard',['ngRoute','ui.bootstrap'])
           controller:'RegistryCtrl',
           title:'Private Registry'
         })
+        .when('/registry/:id/images',{
+          templateUrl:'views/registry-images.html',
+          controller:'RegistryImagesCtrl',
+          title:'Private Registry Images'
+        })
         .otherwise({redirectTo:'/'});
   })
   .run(function($rootScope){

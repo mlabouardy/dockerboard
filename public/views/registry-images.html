@@ -1,0 +1,44 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>Images</h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="#/registry">Private Registry</a>
+      </li>
+      <li class="active">
+        <strong>Images</strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+
+  </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          Repositories
+        </div>
+        <div class="panel-body">
+          <uib-accordion close-others="true">
+            <uib-accordion-group panel-class="panel-danger" ng-repeat="r in repositories">
+              <uib-accordion-heading>
+                <i class="fa fa-archive"></i> {{r.repository}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+              </uib-accordion-heading>
+              <ul class="list-unstyled file-list">
+                <li ng-repeat="(image,id) in r.images">
+                  {{image}}
+                </li>
+              </ul>
+            </uib-accordion-group>
+          </uib-accordion>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
