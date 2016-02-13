@@ -1,8 +1,14 @@
 angular.module('dockerboard')
-  .controller('DockerComposeCtrl',function($scope){
+  .controller('DockerComposeCtrl',function($scope, DockerFactory){
     $scope.service={};
+    $scope.service.links=[];
     $scope.ports=[];
     $scope.services=[];
+
+    $scope.links=[];
+
+    $scope.total=[];
+
     $scope.newPort=function(){
       $scope.ports.push({});
     }
@@ -34,13 +40,13 @@ angular.module('dockerboard')
     $scope.envA="";
     $scope.envB="";
 
-    $scope.createService=function(){
+    function generateYaml(){
       $scope.service.ports=[];
       if($scope.portA && $scope.portB){
-        $scope.service.ports.push(""+$scope.portA+":"+$scope.portB+"");
+        $scope.service.ports.push("".concat($scope.portA,":",$scope.portB));
       }
       for(var i=0;i<$scope.ports.length;i++){
-        $scope.service.ports.push(""+$scope.ports[i].portA+":"+$scope.ports[i].portB+"");
+        $scope.service.ports.push("".concat($scope.ports[i].portA,":",$scope.ports[i].portB));
       }
 
       $scope.service.envs=[];
@@ -59,7 +65,6 @@ angular.module('dockerboard')
         $scope.service.volumes.push(""+$scope.volumes[i].volumeA+"="+$scope.volumes[i].volumeB+"");
       }
       $scope.services.push($scope.service);
-      console.log($scope.service);
 
       $scope.data={};
       $scope.data[$scope.service.container]={};
@@ -73,13 +78,68 @@ angular.module('dockerboard')
       if($scope.service.volumes.length>0){
         $scope.data[$scope.service.container].volumes=$scope.service.volumes;
       }
-      console.log($scope.data);
-      $scope.yml=YAML.stringify($scope.data);
+      if($scope.service.links.length>0){
+        $scope.data[$scope.service.container].links=$scope.service.links;
+      }
     }
 
-    $scope.copy=function(){
-      window.clipboardData.setData('Text',$scope.yml);
-      toastr.success('Copied to clipboard','Dockerboard');
+    function clearForm(){
+      $scope.service={};
+      $scope.service.links=[];
+      $scope.portA="";
+      $scope.portB="";
+      $scope.envA="";
+      $scope.envB="";
+      $scope.volumeA="";
+      $scope.volumeB="";
+      $scope.ports=[];
+      $scope.volumes=[];
+      $scope.envs=[];
+    }
+
+    function serviceExists(name){
+      for(var i=0;i<$scope.services.length;i++){
+        if($scope.services[i].container==name)
+          return true;
+      }
+      return false;
+    }
+
+    $scope.createService=function(){
+
+      if(!serviceExists($scope.service.container)){
+        generateYaml();
+        $scope.total.push($scope.data);
+        DockerFactory.toYaml($scope.total).then(function(yaml){
+          $scope.yml=yaml.data
+          var lines = $scope.yml.split('\n');
+          lines.splice(0,1);
+          $scope.yml = lines.join('\n');
+        });
+
+        clearForm();
+
+        for(var i=0;i<$scope.services.length;i++)
+          $scope.links.push($scope.services[i].container);
+
+
+        toastr.success('Service has been created !','Dockerboard');
+      }else{
+        toastr.error('Service already exists !','Dockerboard');
+      }
+
+    }
+
+    $scope.deleteService=function(id){
+      $scope.total.splice(id,1);
+      $scope.services.splice(id,1);
+      DockerFactory.toYaml($scope.total).then(function(yaml){
+        $scope.yml=yaml.data
+        var lines = $scope.yml.split('\n');
+        lines.splice(0,1);
+        $scope.yml = lines.join('\n');
+      });
+      toastr.success('Service has been removed !','Dockerboard');
     }
 
   });

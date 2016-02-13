@@ -118,6 +118,14 @@ app.get('/api/v1/registry/:id/tags',function(req,res){
   });
 });
 
+
+var YAML = require('json2yaml')
+
+app.post('/test',function(req,res){
+  var ymlText=YAML.stringify(req.body);
+  res.send(ymlText);
+});
+
 app.listen(3000,function(){
   console.log('Server listening ..');
 })

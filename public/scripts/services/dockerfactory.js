@@ -22,6 +22,9 @@ angular.module('dockerboard')
       },
       resource:function(id){
         return $http.get(SERVER+'/usage/'+id);
+      },
+      toYaml:function(data){
+        return $http.post('/test',data);
       }
     }
   });

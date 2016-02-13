@@ -121,9 +121,7 @@
 
             <div class="form-group col-md-12">
               <select ng-model="service.links" class="selectpicker" data-width="100%" multiple>
-                     <option>Mustard</option>
-                     <option>Ketchup</option>
-                     <option>Relish</option>
+                     <option ng-repeat="link in links track by $index" title="{{link}}" value="{{link}}">{{link}}</option>
                  </select>
             </div>
           </div>
@@ -140,12 +138,15 @@
         <h5>Services</h5>
       </div>
       <div class="ibox-content">
-        <ul class="list-unstyled file-list">
-          <li ng-repeat="service in services">
+        <div class="alert alert-info" ng-show="services.length <= 0">
+          None service yet
+        </div>
+        <ul ng-show="services.length > 0" class="list-unstyled file-list">
+          <li ng-repeat="service in services track by $index">
             <i class="fa fa-hdd-o"></i> {{service.container}}
             <div class="pull-right">
-              <a style="color:#FFF" ng-click="newRegistry()" class="label label-info"><i class="fa fa-plus-circle"></i> Edit</a>
-              <a style="color:#FFF" ng-click="newRegistry()" class="label label-danger"><i class="fa fa-plus-circle"></i> Delete</a>
+              <a style="color:#FFF" ng-click="editService($index)" class="label label-info"><i class="fa fa-pencil"></i> Edit</a>
+              <a style="color:#FFF" ng-click="deleteService($index)" class="label label-danger"><i class="fa fa-trash"></i> Delete</a>
             </div>
           </li>
         </ul>
@@ -159,7 +160,7 @@
         <a ngclipboard data-clipboard-target="#code" class="label label-info pull-right"><i class="fa fa-clipboard"></i> Copy</a>
       </div>
       <div class="ibox-content">
-        <div class="alert alert-danger" ng-show="!yml">
+        <div class="alert alert-info" ng-show="!yml">
           Empty file
         </div>
         <textarea ng-show="yml" id="code" class="form-control" disabled textarea-fit>{{yml}}</textarea>
