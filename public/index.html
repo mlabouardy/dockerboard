@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="css/style.css" charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="bower_components/toastr/toastr.min.css">
+  <link rel="stylesheet" href="http://joaoneto.github.io/angular-bootstrap-select/bootstrap-select.min.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
   <div id="wrapper">
@@ -48,6 +49,9 @@
           <li data-ng-class="{active: isActive('/registry')}">
             <a href="#/registry"><i class="fa fa-hdd-o"></i> <span class="nav-label">Private Registry </span></a>
           </li>
+          <li data-ng-class="{active: isActive('/docker-compose')}">
+            <a href="#/docker-compose"><i class="fa fa-tasks"></i> <span class="nav-label">Docker Compose </span></a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -69,10 +73,12 @@
   <script src="bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
   <script src="bower_components/d3/d3.min.js" charset="utf-8"></script>
   <script src="bower_components/moment/min/moment.min.js" charset="utf-8"></script>
+  <script src="http://joaoneto.github.io/angular-bootstrap-select/bootstrap-select.min.js" charset="utf-8"></script>
   <script src="bower_components/angular/angular.min.js" charset="utf-8"></script>
   <script src="bower_components/angular-route/angular-route.min.js" charset="utf-8"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" charset="utf-8"></script>
   <script src="bower_components/toastr/toastr.min.js" charset="utf-8"></script>
+  <script src="http://joaoneto.github.io/angular-bootstrap-select/angular-bootstrap-select.min.js" charset="utf-8"></script>
   <script src="scripts/app.js" charset="utf-8"></script>
   <script src="scripts/services/dockerfactory.js" charset="utf-8"></script>
   <script src="scripts/services/registryfactory.js" charset="utf-8"></script>
@@ -85,4 +91,5 @@
   <script src="scripts/controllers/registry.js" charset="utf-8"></script>
   <script src="scripts/controllers/create-registry.js" charset="utf-8"></script>
   <script src="scripts/controllers/registry-images.js" charset="utf-8"></script>
+  <script src="scripts/controllers/docker-compose.js" charset="utf-8"></script>
   </html>

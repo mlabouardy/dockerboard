@@ -1,4 +1,4 @@
-angular.module('dockerboard',['ngRoute','ui.bootstrap'])
+angular.module('dockerboard',['ngRoute','ui.bootstrap', 'angular-bootstrap-select', 'angular-bootstrap-select.extra'])
   .config(function($routeProvider){
       $routeProvider
         .when('/',{
@@ -36,10 +36,15 @@ angular.module('dockerboard',['ngRoute','ui.bootstrap'])
           controller:'RegistryImagesCtrl',
           title:'Private Registry Images'
         })
+        .when('/docker-compose',{
+          templateUrl:'views/docker-compose.html',
+          controller:'DockerComposeCtrl',
+          title:'Docker Compose'
+        })
         .otherwise({redirectTo:'/'});
   })
   .run(function($rootScope){
     $rootScope.$on('$routeChangeStart', function (event, current, previous) {
       $rootScope.title = current.$$route.title;
     });
-  })
+  });

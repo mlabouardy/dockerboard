@@ -1,0 +1,166 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Create a service</h5>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group col-md-6">
+              <label>Image</label>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Tag</label>
+            </div>
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control"/>
+            </div>
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control"/>
+            </div>
+
+            <div class="form-group col-md-12">
+              <label>Ports</label>
+            </div>
+
+            <div class="form-group col-md-4">
+              <input type="number" class="form-control"/>
+            </div>
+            <div class="form-group col-md-4">
+              <input type="number" class="form-control"/>
+            </div>
+            <div class="col-md-4">
+              <a class="btn btn-primary btn-block" ng-click="newPort()"><i class="fa fa-plus-circle"></i> New</a>
+            </div>
+
+            <div class="form-group col-md-12">
+              <div class="row" ng-repeat="p in ports track by $index">
+                <div class="form-group col-md-4">
+                  <input type="number" class="form-control"/>
+                </div>
+                <div class="form-group col-md-4">
+                  <input type="number" class="form-control"/>
+                </div>
+                <div class="col-md-4">
+                  <a class="btn btn-danger btn-block" ng-click="deletePort($index)"><i class="fa fa-trash"></i> Delete</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-md-12">
+              <label>Environnement variables</label>
+            </div>
+
+            <div class="form-group col-md-4">
+              <input type="text" class="form-control"/>
+            </div>
+            <div class="form-group col-md-4">
+              <input type="text" class="form-control"/>
+            </div>
+            <div class="col-md-4">
+              <a class="btn btn-primary btn-block" ng-click="newEnv()"><i class="fa fa-plus-circle"></i> New</a>
+            </div>
+
+            <div class="form-group col-md-12">
+              <div class="row" ng-repeat="e in envs track by $index">
+                <div class="form-group col-md-4">
+                  <input type="text" class="form-control"/>
+                </div>
+                <div class="form-group col-md-4">
+                  <input type="text" class="form-control"/>
+                </div>
+                <div class="col-md-4">
+                  <a class="btn btn-danger btn-block" ng-click="deleteEnv($index)"><i class="fa fa-trash"></i> Delete</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-md-12">
+              <a class="btn btn-primary btn-block"><i class="fa fa-check-circle"></i> Create</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group col-md-12">
+              <label>Container name</label>
+            </div>
+            <div class="form-group col-md-12">
+              <input type="text" class="form-control"/>
+            </div>
+            <div class="form-group col-md-12">
+              <label>Volumes</label>
+            </div>
+
+            <div class="form-group col-md-4">
+              <input type="text" class="form-control"/>
+            </div>
+            <div class="form-group col-md-4">
+              <input type="text" class="form-control"/>
+            </div>
+            <div class="col-md-4">
+              <a class="btn btn-primary btn-block" ng-click="newVolume()"><i class="fa fa-plus-circle"></i> New</a>
+            </div>
+
+            <div class="form-group col-md-12">
+              <div class="row" ng-repeat="v in volumes track by $index">
+                <div class="form-group col-md-4">
+                  <input type="text" class="form-control"/>
+                </div>
+                <div class="form-group col-md-4">
+                  <input type="text" class="form-control"/>
+                </div>
+                <div class="col-md-4">
+                  <a class="btn btn-danger btn-block" ng-click="deleteVolume($index)"><i class="fa fa-trash"></i> Delete</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-md-12">
+              <label>Links</label>
+            </div>
+
+            <div class="form-group col-md-12">
+              <select ng-model="form" class="selectpicker" data-width="100%" multiple>
+                     <option>Mustard</option>
+                     <option>Ketchup</option>
+                     <option>Relish</option>
+                 </select>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Services</h5>
+      </div>
+      <div class="ibox-content">
+        <ul class="list-unstyled file-list">
+          <li>
+            <i class="fa fa-hdd-o"></i> Container #1
+            <div class="pull-right">
+              <a style="color:#FFF" ng-click="newRegistry()" class="label label-warning"><i class="fa fa-plus-circle"></i> New registry</a>
+              <a style="color:#FFF" ng-click="newRegistry()" class="label label-primary"><i class="fa fa-plus-circle"></i> New registry</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Docker-compose File</h5>
+        <span class="label label-info pull-right"><i class="fa fa-clipboard"></i> Copy</span>
+      </div>
+      <div class="ibox-content">
+        <textarea class="form-control" disabled>dsdq</textarea>
+      </div>
+    </div>
+  </div>
+</div>
