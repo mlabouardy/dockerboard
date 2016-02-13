@@ -1,4 +1,4 @@
-angular.module('dockerboard',['ngRoute','ui.bootstrap', 'angular-bootstrap-select', 'angular-bootstrap-select.extra'])
+angular.module('dockerboard',['ngRoute','ui.bootstrap', 'ngclipboard','angular-bootstrap-select', 'angular-bootstrap-select.extra'])
   .config(function($routeProvider){
       $routeProvider
         .when('/',{
@@ -47,4 +47,70 @@ angular.module('dockerboard',['ngRoute','ui.bootstrap', 'angular-bootstrap-selec
     $rootScope.$on('$routeChangeStart', function (event, current, previous) {
       $rootScope.title = current.$$route.title;
     });
-  });
+  })
+  .directive('textareaFit', [
+    '$log',
+    function ($log) {
+      var copyCssStyles = function (elSrc, elDest) {
+            var stylesToCopy = [
+                  'width',
+                  'font-family',
+                  'font-size',
+                  'line-height',
+                  'min-height',
+                  'padding'
+                ],
+                destStyles = {};
+
+            angular.forEach(stylesToCopy, function (style) {
+              destStyles[style] = elSrc.css(style);
+            });
+
+            elDest.css(destStyles);
+          };
+
+      return {
+        restrict: 'A',
+        link : function ($scope, $element) {
+          if (!angular.isFunction($element.height)) {
+            $log.error('textareaFit directive only works when jQuery is loaded');
+          } else if (!$element.is('textarea')) {
+            $log.info('textareaFit directive only works for elements of type "textarea"');
+          } else {
+            var elClone = angular.element('<div>'),
+                setEqualHeight = function () {
+                  var curText = $element.val();
+                  if (/\n$/.test(curText)) {
+                    curText += ' ';
+                  }
+                  copyCssStyles($element, elClone);
+                  elClone.text(curText);
+                  $element.height(elClone.height());
+                };
+
+            elClone
+              .hide()
+              .css({
+                'white-space': 'pre-wrap',
+                'word-wrap' : 'break-word'
+              });
+            $element.parent().append(elClone);
+            $element.css('overflow', 'hidden');
+
+            $scope.$watch(function () {
+              return $element.val();
+            }, setEqualHeight);
+
+            $scope.$watch(function () {
+              return $element.width();
+            }, setEqualHeight);
+
+            $scope.$on('destroy', function () {
+              elClone.remove();
+              elClone = null;
+            });
+          }
+        }
+      };
+    }]
+  );
