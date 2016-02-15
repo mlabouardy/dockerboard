@@ -52,6 +52,9 @@
           <li data-ng-class="{active: isActive('/docker-compose')}">
             <a href="#/docker-compose"><i class="fa fa-tasks"></i> <span class="nav-label">Docker Compose </span></a>
           </li>
+          <li data-ng-class="{active: isActive('/android')}">
+            <a href="#/android"><i class="fa fa-android"></i> <span class="nav-label">Android </span></a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -72,6 +75,7 @@
   </body>
   <script src="bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
   <script src="bower_components/d3/d3.min.js" charset="utf-8"></script>
+  <script src="bower_components/jquery-qrcode/jquery.qrcode-0.12.0.js" charset="utf-8"></script>
   <script src="bower_components/yamljs/bin/yaml.js"></script>
   <script src="bower_components/moment/min/moment.min.js" charset="utf-8"></script>
   <script src="http://joaoneto.github.io/angular-bootstrap-select/bootstrap-select.min.js" charset="utf-8"></script>
@@ -95,4 +99,5 @@
   <script src="scripts/controllers/create-registry.js" charset="utf-8"></script>
   <script src="scripts/controllers/registry-images.js" charset="utf-8"></script>
   <script src="scripts/controllers/docker-compose.js" charset="utf-8"></script>
+  <script src="scripts/controllers/android.js" charset="utf-8"></script>
   </html>

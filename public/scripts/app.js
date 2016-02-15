@@ -41,6 +41,11 @@ angular.module('dockerboard',['ngRoute','ui.bootstrap', 'ngclipboard','angular-b
           controller:'DockerComposeCtrl',
           title:'Docker Compose'
         })
+        .when('/android',{
+          templateUrl:'views/android.html',
+          controller:'AndroidCtrl',
+          title:'Android Application'
+        })
         .otherwise({redirectTo:'/'});
   })
   .run(function($rootScope){

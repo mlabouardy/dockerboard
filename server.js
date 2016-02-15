@@ -5,6 +5,7 @@ var express=require('express'),
     docker=require('./lib/docker'),
     request = require("request"),
     async=require('async'),
+    YAML = require('json2yaml'),
     app=express();
 
 app.use(bodyParser.json());
@@ -118,12 +119,9 @@ app.get('/api/v1/registry/:id/tags',function(req,res){
   });
 });
 
-
-var YAML = require('json2yaml')
-
 app.post('/test',function(req,res){
-  var ymlText=YAML.stringify(req.body);
-  res.send(ymlText);
+  var yml=YAML.stringify(req.body);
+  res.send(yml);
 });
 
 app.listen(3000,function(){
