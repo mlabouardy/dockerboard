@@ -31,7 +31,7 @@ angular.module('dockerboard',['ngRoute','ui.bootstrap', 'ngclipboard','angular-b
           controller:'RegistryCtrl',
           title:'Private Registry'
         })
-        .when('/registry/:id/images',{
+        .when('/registry/:api/:id/images',{
           templateUrl:'views/registry-images.html',
           controller:'RegistryImagesCtrl',
           title:'Private Registry Images'

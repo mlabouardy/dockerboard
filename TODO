@@ -1,12 +1,12 @@
-# Fix service links
 # Edit service
-# Save Docker-compose
-# Download Docker-compose
 # Close sidebar
 # remove unessecarry body bottom
 # validate forms
 # registry auth
 # registry v2
+
+# Save Docker-compose
+# Fix service links
 # loading
 # toastr messages
 
@@ -21,3 +21,5 @@
 # create image from dockerfile
 
 # real time usage
+
+# Build android app

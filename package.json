@@ -13,6 +13,7 @@
     "body-parser": "^1.15.0",
     "dockerode": "^2.2.9",
     "express": "^4.13.4",
+    "fs": "0.0.2",
     "json2yaml": "^1.0.3",
     "morgan": "^1.6.1",
     "path": "^0.12.7",

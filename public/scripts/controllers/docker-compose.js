@@ -1,13 +1,10 @@
 angular.module('dockerboard')
-  .controller('DockerComposeCtrl',function($scope, DockerFactory){
-    $scope.service={};
-    $scope.service.links=[];
-    $scope.ports=[];
+  .controller('DockerComposeCtrl',function($scope, DockerFactory, $window){
+    clearForm();
     $scope.services=[];
-
     $scope.links=[];
 
-    $scope.total=[];
+    $scope.download=false;
 
     $scope.newPort=function(){
       $scope.ports.push({});
@@ -17,7 +14,7 @@ angular.module('dockerboard')
       $scope.ports.splice(index,1);
     }
 
-    $scope.envs=[];
+
     $scope.newEnv=function(){
       $scope.envs.push({});
     }
@@ -26,7 +23,7 @@ angular.module('dockerboard')
       $scope.envs.splice(index,1);
     }
 
-    $scope.volumes=[];
+
     $scope.newVolume=function(){
       $scope.volumes.push({});
     }
@@ -34,11 +31,6 @@ angular.module('dockerboard')
     $scope.deleteVolume=function(index){
       $scope.volumes.splice(index,1);
     }
-
-    $scope.portA="";
-    $scope.portB="";
-    $scope.envA="";
-    $scope.envB="";
 
     function generateYaml(){
       $scope.service.ports=[];
@@ -86,15 +78,10 @@ angular.module('dockerboard')
     function clearForm(){
       $scope.service={};
       $scope.service.links=[];
-      $scope.portA="";
-      $scope.portB="";
-      $scope.envA="";
-      $scope.envB="";
-      $scope.volumeA="";
-      $scope.volumeB="";
       $scope.ports=[];
-      $scope.volumes=[];
       $scope.envs=[];
+      $scope.volumes=[];
+      $scope.total=[];
     }
 
     function serviceExists(name){
@@ -106,9 +93,9 @@ angular.module('dockerboard')
     }
 
     $scope.createService=function(){
-
       if(!serviceExists($scope.service.container)){
         generateYaml();
+        $scope.download=true;
         $scope.total.push($scope.data);
         DockerFactory.toYaml($scope.total).then(function(yaml){
           $scope.yml=yaml.data
@@ -121,8 +108,6 @@ angular.module('dockerboard')
 
         for(var i=0;i<$scope.services.length;i++)
           $scope.links.push($scope.services[i].container);
-
-
         toastr.success('Service has been created !','Dockerboard');
       }else{
         toastr.error('Service already exists !','Dockerboard');
@@ -133,6 +118,8 @@ angular.module('dockerboard')
     $scope.deleteService=function(id){
       $scope.total.splice(id,1);
       $scope.services.splice(id,1);
+      if($scope.services.length<=0)
+        $scope.download=false
       DockerFactory.toYaml($scope.total).then(function(yaml){
         $scope.yml=yaml.data
         var lines = $scope.yml.split('\n');

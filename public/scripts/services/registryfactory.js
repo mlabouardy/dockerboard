@@ -8,8 +8,11 @@ angular.module('dockerboard')
       create:function(registry){
         return $http.post(SERVER+'/registry',registry);
       },
-      search:function(id){
-        return $http.get(SERVER+'/registry/'+id+'/tags');
+      searchV1:function(id){
+        return $http.get(SERVER+'/registry/v1/'+id+'/tags');
+      },
+      searchV2:function(id){
+        return $http.get(SERVER+'/registry/v2/'+id+'/tags');
       },
       remove:function(id){
         return $http.delete(SERVER+'/registry/'+id);

@@ -157,7 +157,10 @@
     <div class="ibox float-e-margins">
       <div class="ibox-title">
         <h5>Docker-compose File</h5>
-        <a ngclipboard data-clipboard-target="#code" class="label label-info pull-right"><i class="fa fa-clipboard"></i> Copy</a>
+        <div class="pull-right">
+          <a ng-show="download" ng-href="/api/v1/download" class="label label-primary"><i class="fa fa-download"></i> Download</a>
+          <a ngclipboard data-clipboard-target="#code" class="label label-info"><i class="fa fa-clipboard"></i> Copy</a>
+        </div>
       </div>
       <div class="ibox-content">
         <div class="alert alert-info" ng-show="!yml">
