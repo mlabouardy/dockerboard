@@ -1,5 +1,6 @@
 angular.module('dockerboard')
   .controller('LogsCtrl',function($scope, DockerFactory, $routeParams){
+
     DockerFactory.container($routeParams.id).then(function(details){
       details=details.data;
       $scope.name=details.Name.slice(1);

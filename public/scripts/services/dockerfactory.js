@@ -1,6 +1,6 @@
 angular.module('dockerboard')
   .factory('DockerFactory',function($http){
-    var SERVER='http://51.254.132.239:3002/api/v1';
+    var SERVER='/api/v1';
     return{
       containers:function(){
         return $http.get(SERVER+'/containers');
@@ -24,7 +24,7 @@ angular.module('dockerboard')
         return $http.get(SERVER+'/usage/'+id);
       },
       toYaml:function(data){
-        return $http.post('/api/v1/yaml',data);
+        return $http.post(SERVER+'/yaml',data);
       }
     }
   });

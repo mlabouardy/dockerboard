@@ -1,8 +1,10 @@
 angular.module('dockerboard')
   .controller('DockerComposeCtrl',function($scope, DockerFactory, $window){
+    toastr.success('Create your custom templates', 'Docker compose section');
+
     clearForm();
     $scope.services=[];
-    $scope.links=[];
+    $scope.links=["a"];
 
     $scope.download=false;
 
@@ -82,6 +84,12 @@ angular.module('dockerboard')
       $scope.envs=[];
       $scope.volumes=[];
       $scope.total=[];
+      $scope.portA="";
+      $scope.portB="";
+      $scope.envA="";
+      $scope.envB="";
+      $scope.volumeA="";
+      $scope.volumeB="";
     }
 
     function serviceExists(name){
@@ -127,6 +135,10 @@ angular.module('dockerboard')
         $scope.yml = lines.join('\n');
       });
       toastr.success('Service has been removed !','Dockerboard');
+    }
+
+    $scope.editService=function(id){
+      console.log($scope.services[id]);
     }
 
   });

@@ -1,5 +1,7 @@
 angular.module('dockerboard')
 .controller('ImagesCtrl',function($scope, DockerFactory){
+  toastr.success('Manage docker images', 'Images Manager');
+
   DockerFactory.images().then(function(images){
     $scope.images=images.data;
     for(var i=0;i<$scope.images.length;i++){

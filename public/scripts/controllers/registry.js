@@ -1,5 +1,7 @@
 angular.module('dockerboard')
   .controller('RegistryCtrl',function($scope, $uibModal, RegistryFactory){
+    toastr.success('Manage your registries', 'Private Registries');
+
     $scope.registries=[];
 
     var refresh=function(){
@@ -33,5 +35,5 @@ angular.module('dockerboard')
 	    });
     }
 
-    
+
   });

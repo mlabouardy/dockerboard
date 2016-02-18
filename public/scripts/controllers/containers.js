@@ -1,5 +1,7 @@
 angular.module('dockerboard')
   .controller('ContainersCtrl',function($scope, DockerFactory){
+    toastr.success('Manage docker containers', 'Containers Manager');
+
     DockerFactory.containers().then(function(containers){
       $scope.containers=containers.data;
       for(var i=0;i<$scope.containers.length;i++){

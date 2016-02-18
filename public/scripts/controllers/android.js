@@ -1,13 +1,15 @@
 angular.module('dockerboard')
-  .controller('AndroidCtrl',function($scope){
+  .controller('AndroidCtrl',function($scope, $window){
+    toastr.success('Docker directly in your phone', 'Android application');
+
     $scope.data={
-      url:"http://51",
+      api: $window.location.origin+'/api/v1',
       token:"#dsqdsq"
     }
 
     $('#qrcode').qrcode({
         "size": 230,
-        "fill": "#18A689",
-        "text": $scope.data
+        "fill": "#000",
+        "text": JSON.stringify($scope.data)
     });
   });

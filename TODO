@@ -3,12 +3,10 @@
 # remove unessecarry body bottom
 # validate forms
 # registry auth
-# registry v2
 
 # Save Docker-compose
 # Fix service links
 # loading
-# toastr messages
 
 
 # Stop/Start/Pause/Unpause Image
