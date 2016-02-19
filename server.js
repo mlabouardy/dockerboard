@@ -42,7 +42,10 @@ app.get('/api/v1/logs/:id',function(req,res){
 
 app.get('/api/v1/info',function(req,res){
   docker.dockerInfo(function(err,data){
-    res.send(data);
+    if(err)
+      res.status(401).send();
+    else
+      res.send(data);
   });
 });
 

@@ -31,7 +31,10 @@
             </div>
           </div>
         </div>
-        <table class="table table-sm" style="font-size:12px">
+        <div ng-show="!images" class="alert alert-success">
+          There's no image !
+        </div>
+        <table ng-show="images" class="table table-sm" style="font-size:12px">
           <thead>
             <tr>
               <th>Name</th>

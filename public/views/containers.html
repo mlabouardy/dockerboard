@@ -5,7 +5,10 @@
         <h5>List of containers</h5>
       </div>
       <div class="ibox-content">
-        <table class="table table-sm" style="font-size:12px">
+        <div ng-show="!containers" class="alert alert-success">
+          No running container !
+        </div>
+        <table ng-show="containers" class="table table-sm" style="font-size:12px">
           <thead>
             <tr>
               <th></th>

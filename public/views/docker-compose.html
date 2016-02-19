@@ -137,7 +137,7 @@
         <h5>Services</h5>
       </div>
       <div class="ibox-content">
-        <div class="alert alert-info" ng-show="services.length <= 0">
+        <div class="alert alert-success" ng-show="services.length <= 0">
           None service yet
         </div>
         <ul ng-show="services.length > 0" class="list-unstyled file-list">
@@ -162,7 +162,7 @@
         </div>
       </div>
       <div class="ibox-content">
-        <div class="alert alert-info" ng-show="!yml">
+        <div class="alert alert-success" ng-show="!yml">
           Empty file
         </div>
         <textarea ng-show="yml" id="code" class="form-control" disabled textarea-fit>{{yml}}</textarea>

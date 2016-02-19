@@ -9,8 +9,8 @@ angular.module('dockerboard')
 
       $scope.cpu=usage.cpu_stats.cpu_usage.total_usage/1000000;
       $scope.cpu_system=usage.cpu_stats.system_cpu_usage/1000000;
-      $scope.networkIn=usage.network.rx_bytes/1000;
-      $scope.networkOut=usage.network.tx_bytes/1000;
+      $scope.networkIn=usage.network.rx_bytes/1000000;
+      $scope.networkOut=usage.network.tx_bytes/1000000;
       $scope.cpu_percentage=($scope.cpu/$scope.cpu_system)*100;
 
       $scope.now=moment(new Date()).fromNow();

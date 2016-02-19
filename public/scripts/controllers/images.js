@@ -19,6 +19,8 @@ angular.module('dockerboard')
       var size=$scope.images[i].VirtualSize;
       $scope.images[i].VirtualSize=(size/1000)/1000;
     }
+  }, function(){
+    toastr.error('Server is not responding', 'Dockerboard');
   });
 
   $scope.keyword={};

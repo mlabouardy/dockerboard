@@ -1,5 +1,5 @@
 angular.module('dockerboard')
-  .controller('AndroidCtrl',function($scope, $window){
+  .controller('AndroidCtrl',function($scope, $window, Lightbox){
     toastr.success('Docker directly in your phone', 'Android application');
 
     $scope.data={
@@ -12,4 +12,15 @@ angular.module('dockerboard')
         "fill": "#000",
         "text": JSON.stringify($scope.data)
     });
+
+    $scope.images = [
+    {
+      'url': 'http://i.imgur.com/9RyWebb.jpg',
+      'thumbUrl': 'http://i.imgur.com/9RyWebbb.jpg'
+    }
+  ];
+
+  $scope.openLightboxModal = function (index) {
+    Lightbox.openModal($scope.images, index);
+  };
   });

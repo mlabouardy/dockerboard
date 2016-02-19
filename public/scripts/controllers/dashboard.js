@@ -15,10 +15,14 @@ angular.module('dockerboard')
 
   DockerFactory.infos().then(function(info){
     $scope.info=info.data;
+  },function(){
+    toastr.error('Server is not responding', 'Dockerboard');
   });
 
   DockerFactory.version().then(function(version){
     $scope.version=version.data;
+  },function(){
+    toastr.error('Server is not responding', 'Dockerboard');
   });
 
 

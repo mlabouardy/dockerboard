@@ -86,5 +86,7 @@ angular.module('dockerboard')
       .attr("y", function(d) { return d.y; });
     });
 
-    });
+  },function(){
+    toastr.error('Server is not responding', 'Dockerboard');
+  });
   });
