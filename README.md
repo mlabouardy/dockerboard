@@ -8,6 +8,13 @@ Manage docker Containers
 docker run -d -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock --name dockerboard mlabouardy/dockerboard:1.0
 ```
 
-# Screenshot
+# Screenshots
 
-![Alt text](screenshot.png "Screenshot of the client app")
+<p align="center">
+  <img src="screenshots/1.png" width="22%"/>
+  <img src="screenshots/2.png" width="22%"/>
+  <img src="screenshots/3.png" width="22%"/>
+  <img src="screenshots/4.png" width="22%"/>
+  <img src="screenshots/5.png" width="22%"/>
+  <img src="screenshots/6.png" width="22%"/>
+</p>
