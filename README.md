@@ -5,7 +5,7 @@ Manage docker Containers
 # Run
 
 ```sh
-docker run -d -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock --name dockerboard mlabouardy/dockerboard:1.0
+docker run -d -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock --name dockerboard mlabouardy/dockerboard:2.0
 ```
 
 # Screenshots
