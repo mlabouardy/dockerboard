@@ -19,6 +19,15 @@ angular.module('dockerboard')
       });
     }
 
+    function registryExists(registry){
+      for(var i=0;i<$scope.registries.length;i++){
+        if($scope.registries[i].hostname==registry.hostname
+            && $scope.registries[i].port==registry.port)
+            return true;
+      }
+      return false;
+    }
+
     $scope.newRegistry=function(){
       var newRegistryModal = $uibModal.open({
 	      animation: $scope.animationsEnabled,
@@ -27,11 +36,15 @@ angular.module('dockerboard')
 	    });
 
 	    newRegistryModal.result.then(function (registry) {
-        $scope.registries.push(registry);
-        toastr.info('Private registry created !', 'Dockerboard');
-        RegistryFactory.create(registry).then(function(){
-          refresh();
-        });
+        if(!registryExists(registry)){
+          $scope.registries.push(registry);
+          toastr.info('Private registry created !', 'Dockerboard');
+          RegistryFactory.create(registry).then(function(){
+            refresh();
+          });
+        }else{
+          toastr.warning('Private registry already exists !', 'Dockerboard');
+        }
 	    });
     }
 
