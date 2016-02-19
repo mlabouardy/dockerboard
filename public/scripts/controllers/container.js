@@ -1,7 +1,7 @@
 angular.module('dockerboard')
-  .controller('ContainerCtrl',function($scope, DockerFactory, $routeParams){
+  .controller('ContainerCtrl',function($scope, ContainerFactory, $routeParams){
     $scope.volumes=[];
-    DockerFactory.resource($routeParams.id).then(function(data){
+    ContainerFactory.resource($routeParams.id).then(function(data){
       var usage=data.data;
       $scope.memory=usage.memory_stats.usage/1000000;
       $scope.memory_limit=usage.memory_stats.limit/1000000;
@@ -17,35 +17,10 @@ angular.module('dockerboard')
     });
 
 
-    DockerFactory.container($routeParams.id).then(function(details){
+    ContainerFactory.container($routeParams.id).then(function(details){
       details=details.data;
-      var stats=[
-        {
-          name:"Running",
-          color:"widget style1 navy-bg",
-          icon:"fa fa-play fa-5x"
-        },
-        {
-          name:"Paused",
-          color:"widget style1 lazur-bg",
-          icon:"fa fa-pause fa-5x"
-        },
-        {
-          name:"Restarting",
-          color:"widget style1 yellow-bg",
-          icon:"fa fa-refresh fa-5x"
-        },
-        {
-          name:"OOMKilled",
-          color:"widget style1 red-bg",
-          icon:"fa fa-hand-paper-o fa-5x"
-        },
-        {
-          name:"Dead",
-          color:"widget style1 red-bg",
-          icon:"fa fa-ban fa-5x"
-        }
-      ];
+
+      var stats=getContainerStats();
 
       $scope.state={}
       if(details.State.Running)

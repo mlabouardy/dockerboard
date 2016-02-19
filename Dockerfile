@@ -11,5 +11,5 @@ RUN cd /src; npm install
 # Bundle app source
 COPY . /src
 
-EXPOSE  3000 3000
+EXPOSE  3000
 CMD ["node", "/src/server.js"]

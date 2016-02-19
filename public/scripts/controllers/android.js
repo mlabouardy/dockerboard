@@ -13,32 +13,7 @@ angular.module('dockerboard')
     "text": JSON.stringify($scope.data)
   });
 
-  $scope.images = [
-    {
-      'url': '/images/2.png',
-      'thumbUrl': '/images/2.png'
-    },
-    {
-      'url': '/images/3.png',
-      'thumbUrl': '/images/3.png'
-    },
-    {
-      'url': '/images/4.png',
-      'thumbUrl': '/images/4.png'
-    },
-    {
-      'url': '/images/5.png',
-      'thumbUrl': '/images/5.png'
-    },
-    {
-      'url': '/images/6.png',
-      'thumbUrl': '/images/6.png'
-    },
-    {
-      'url': '/images/7.png',
-      'thumbUrl': '/images/7.png'
-    }
-  ];
+  $scope.images = getAndroidScreenshots();
 
   $scope.openLightboxModal = function (index) {
     Lightbox.openModal($scope.images, index);

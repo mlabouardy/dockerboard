@@ -5,7 +5,7 @@ Manage docker Containers
 # Run
 
 ```sh
-docker run -d -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock --name dockerboard mlabouardy/dockerboard:1.0
+docker run -d -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock --name dockerboard mlabouardy/dockerboard:3.0
 ```
 
 # Screenshots
@@ -18,3 +18,11 @@ docker run -d -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock --name d
   <img src="screenshots/5.png" width="25%"/>
   <img src="screenshots/6.png" width="25%"/>
 </p>
+
+# Docker Images
+
+Image | Tag
+------------ | -------------
+mlabouardy/dockerboard | 3.0
+mlabouardy/dockerboard | 2.0
+mlabouardy/dockerboard | 1.0

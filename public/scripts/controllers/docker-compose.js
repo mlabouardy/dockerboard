@@ -1,6 +1,7 @@
 angular.module('dockerboard')
-  .controller('DockerComposeCtrl',function($scope, DockerFactory, $window){
+  .controller('DockerComposeCtrl',function($scope, UtilityFactory, $window){
     toastr.success('Create your custom templates', 'Docker compose section');
+
 
     clearForm();
     $scope.services=[];
@@ -105,7 +106,7 @@ angular.module('dockerboard')
         generateYaml();
         $scope.download=true;
         $scope.total.push($scope.data);
-        DockerFactory.toYaml($scope.total).then(function(yaml){
+        UtilityFactory.toYaml($scope.total).then(function(yaml){
           $scope.yml=yaml.data
           var lines = $scope.yml.split('\n');
           lines.splice(0,1);
@@ -128,7 +129,7 @@ angular.module('dockerboard')
       $scope.services.splice(id,1);
       if($scope.services.length<=0)
         $scope.download=false
-      DockerFactory.toYaml($scope.total).then(function(yaml){
+      UtilityFactory.toYaml($scope.total).then(function(yaml){
         $scope.yml=yaml.data
         var lines = $scope.yml.split('\n');
         lines.splice(0,1);

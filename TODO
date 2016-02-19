@@ -1,6 +1,3 @@
-# validate forms
-# registry auth
-
 # Edit service
 # Save Docker-compose
 # Fix service links
@@ -14,5 +11,5 @@
 # export image
 # create dockerfile
 # create image from dockerfile
-
+# registry auth
 # real time usage
