@@ -1,12 +1,12 @@
-# Edit service
+# loading
 # Close sidebar
 # remove unessecarry body bottom
 # validate forms
 # registry auth
 
+# Edit service
 # Save Docker-compose
 # Fix service links
-# loading
 
 
 # Stop/Start/Pause/Unpause Image
@@ -19,5 +19,3 @@
 # create image from dockerfile
 
 # real time usage
-
-# Build android app

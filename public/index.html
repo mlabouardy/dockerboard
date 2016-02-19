@@ -37,8 +37,11 @@
               </a>
             </div>
             <div class="logo-element">
-              IN+
+              DB
             </div>
+          </li>
+          <li data-ng-class="{active: isActive('/')}">
+            <a href="#/"><i class="fa fa-home"></i> <span class="nav-label">Dashboard </span></a>
           </li>
           <li data-ng-class="{active: isActive('/containers')}">
             <a href="#/containers"><i class="fa fa-th-large"></i> <span class="nav-label">Containers </span></a>
@@ -62,14 +65,15 @@
     <div id="page-wrapper" class="gray-bg dashbard-1">
 
       <div class="row border-bottom">
-        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0" ng-controller="NavbarCtrl">
           <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#/"><i class="fa fa-home"></i> </a>
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " ng-click="closeSidebar()"><i class="fa fa-bars"></i> </a>
           </div>
         </nav>
       </div>
-
+      <div class="wrapper wrapper-content animated fadeInRight">
       <div ng-view=""></div>
+    </div>
 
       <div class="footer">
         <div class="pull-right">
@@ -82,6 +86,7 @@
 
 
     </div>
+  </div>
   </body>
   <script src="bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
   <script src="bower_components/d3/d3.min.js" charset="utf-8"></script>
