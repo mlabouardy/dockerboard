@@ -3,6 +3,9 @@
 # Fix service links
 
 
+remove unused images
+remove stopped cotnainers
+clean volumes
 # Stop/Start/Pause/Unpause Image
 # Push image to Registry
 # Pull image from registry
@@ -13,3 +16,10 @@
 # create image from dockerfile
 # registry auth
 # real time usage
+
+Service links
+Mocha tests
+encrypt api/token
+use token
+generate report selenium
+youssefi architecture

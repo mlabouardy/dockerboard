@@ -10,7 +10,7 @@ docker run -d -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock --name d
 
 # Screenshots
 
-<p align="center">
+<p align="center">d
   <img src="screenshots/1.png" width="25%"/>
   <img src="screenshots/2.png" width="25%"/>
   <img src="screenshots/3.png" width="25%"/>
