@@ -1,4 +1,4 @@
-angular.module('dockerboard',['ngRoute','ui.bootstrap', 'ngclipboard','bootstrapLightbox'])
+angular.module('dockerboard',['ngRoute','ui.bootstrap', 'ngclipboard','isteven-multi-select','bootstrapLightbox'])
   .config(function($routeProvider){
       $routeProvider
         .when('/',{

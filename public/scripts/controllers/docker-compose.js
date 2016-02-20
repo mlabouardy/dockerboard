@@ -2,10 +2,9 @@ angular.module('dockerboard')
   .controller('DockerComposeCtrl',function($scope, UtilityFactory, $window){
     toastr.success('Create your custom templates', 'Docker compose section');
 
-
     clearForm();
     $scope.services=[];
-    $scope.links=["a"];
+    $scope.links=[];
 
     $scope.download=false;
 
@@ -116,7 +115,11 @@ angular.module('dockerboard')
         clearForm();
 
         for(var i=0;i<$scope.services.length;i++)
-          $scope.links.push($scope.services[i].container);
+          $scope.links.push({
+            name:$scope.services[i].container,
+            marker:$scope.services[i].container,
+            ticked:false
+          });
         toastr.success('Service has been created !','Dockerboard');
       }else{
         toastr.error('Service already exists !','Dockerboard');
