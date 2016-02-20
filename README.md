@@ -8,6 +8,10 @@ Manage docker Containers
 docker run -d -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock --name dockerboard mlabouardy/dockerboard:3.0
 ```
 
+#Download the Android app
+
+From Google play: https://play.google.com/store/apps/details?id=labouardy.com.dockerboard
+
 # Screenshots
 
 <p align="center">d
