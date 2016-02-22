@@ -31,3 +31,7 @@ mlabouardy/dockerboard | 4.0
 mlabouardy/dockerboard | 3.0
 mlabouardy/dockerboard | 2.0
 mlabouardy/dockerboard | 1.0
+
+# Developer
+
+Mohamed Labouardy <mohamed@labouardy.com>
