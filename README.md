@@ -5,7 +5,7 @@ Manage docker Containers
 # Run
 
 ```sh
-docker run -d -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock --name dockerboard mlabouardy/dockerboard:4.0
+docker run -d -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock --name dockerboard mlabouardy/dockerboard:5.0
 ```
 
 # Android app
@@ -27,6 +27,7 @@ Soon on google store
 
 Image | Tag
 ------------ | -------------
+mlabouardy/dockerboard | 5.0
 mlabouardy/dockerboard | 4.0
 mlabouardy/dockerboard | 3.0
 mlabouardy/dockerboard | 2.0
