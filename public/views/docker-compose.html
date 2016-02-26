@@ -120,7 +120,7 @@
             </div>
 
             <div class="form-group col-md-12">
-              <div isteven-multi-select input-model="links" output-model="outputBrowsers" button-label="name" item-label="name maker" tick-property="ticked"></div>
+              <div isteven-multi-select input-model="links" output-model="serviceLinks" button-label="name" item-label="name maker" tick-property="ticked"></div>
             </div>
           </div>
         </div>
@@ -142,10 +142,7 @@
         <ul ng-show="services.length > 0" class="list-unstyled file-list">
           <li ng-repeat="service in services track by $index">
             <i class="fa fa-hdd-o"></i> {{service.container}}
-            <div class="pull-right">
-              <a style="color:#FFF" ng-click="editService($index)" class="label label-info"><i class="fa fa-pencil"></i> Edit</a>
-              <a style="color:#FFF" ng-click="deleteService($index)" class="label label-danger"><i class="fa fa-trash"></i> Delete</a>
-            </div>
+            <a style="color:#FFF" ng-click="deleteService($index)" class="label label-danger pull-right"><i class="fa fa-trash"></i> Delete</a>
           </li>
         </ul>
       </div>

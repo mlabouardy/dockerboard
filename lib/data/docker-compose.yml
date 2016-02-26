@@ -1,0 +1,6 @@
+
+  - 
+    web: 
+      image: "apaceh:latest"
+      ports: 
+        - "3306:3306"
