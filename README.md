@@ -1,4 +1,4 @@
-## Dockerboard
+## Dockerboard [![Build Status](https://travis-ci.org/mlabouardy/docker-ui.svg?branch=master)](https://travis-ci.org/mlabouardy/docker-ui)
 
 Web UI to manage docker containers, images, private registries and create docker compose templates  ...
 
