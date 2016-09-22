@@ -2,6 +2,8 @@
 
 Web UI to manage docker containers, images, private registries and create docker compose templates  ...
 
+http://vps310148.ovh.net:8000
+
 ## Quickstart
 
 ```sh
